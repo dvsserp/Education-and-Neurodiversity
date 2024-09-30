@@ -10,9 +10,9 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand d-flex text-center" href="#">
+          <a class="navbar-brand text-center" href="#">
             <img src="#" alt="pic" width="10px" height="auto">
-            Education</a>
+            Glizzy.Edu</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,26 +26,34 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+                  Your Textbooks
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Textbook 1</a></li>
+                  <li><a class="dropdown-item" href="#">Textbook 2</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><div>
+                    <label for="addFile" class="dropdown-item">
+                       <i class="fa-solid fa-folder-plus"></i>
+                       Add Files 
+                      <input type="file" id="addFile" style="display: none; visibility: hidden;"></label> 
+                  </div></li>
                 </ul>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex mx-2" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-info" type="submit">Search</button>
             </form>
+            <div class="vr"></div>
+            <button type="button" class="d-flex mx-2 btn btn-outline-info">Login and Register</button>
           </div>
         </div>
       </nav>
       <main>
         <!--Add AI chat bot here-->
       </main>
-
+    <script src="https://kit.fontawesome.com/19a823e30b.js" crossorigin="anonymous"></script>
+    <script src="./script1.js"></script>
     <script src="./AI.py"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
