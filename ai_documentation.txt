@@ -1,0 +1,18 @@
+Have Pip, curl, and git installed
+
+MKDIR llama_project (To create new folder)
+
+cd llama_project (To enter it)
+
+python3 -m venv venv (to create virtual enviornment)
+
+source venv/bin/activate (To enter VE)
+
+curl -fsSL https://ollama.com/install.sh | sh - Grabs ai from ollama
+
+ollama run llama3.2 (Starts Ai Model)
+
+curl http://localhost:11434/api/generate -d {
+    "model":"llama3.2"
+    "prompt":"Why is the sky blue?"
+}
