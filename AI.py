@@ -8,6 +8,10 @@ def create_app():
     def hello_world():
         return render_template('web.html')
     
+    ##-@app.route('./chat.html') for later
+    ##-def chatbot():
+        ##-return render_template('chat.html')
+
     return app
 
 if __name__ == '__main__':
