@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import io
+import PyPDF2
 
 def create_app():
     app = Flask(__name__, template_folder="front_end")
@@ -8,11 +10,24 @@ def create_app():
     def hello_world():
         return render_template('web.html')
     
-    ##-@app.route('./chat.html') for later
-    ##-def chatbot():
-        ##-return render_template('chat.html')
-
+    @app.route('/chat')
+    def chatbot():
+        return render_template('chat.html')
+    
+    @app.route('/geometry')
+    def geolink():
+        return render_template('geometry.html')
+    
+    @app.route('/compsci')
+    def copmsci():
+        return render_template('compsci.html')
+    
+    @app.route('/astro')
+    def astro():
+        return render_template('astro.html')
+     
     return app
+
 
 if __name__ == '__main__':
     app = create_app()
