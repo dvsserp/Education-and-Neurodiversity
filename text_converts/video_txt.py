@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from moviepy.editor import VideoFileClip
 import speech_recognition as sr
+import os
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ def transcribe_video(video_file):
 
     with audio_file as source:
         audio_data = recognizer.record(source)
-        text = recognizer.recognize_google(audio_data)
+        text = recognizer.recognize_google(audio_data) #To put API key in, do , and then api key
 
     return text
 
@@ -33,7 +34,10 @@ def transcribe_video_endpoint():
         return 'No selected file'
 
     if file:
+        file_path = os.path.join('uploaded_file.mp4') #Put a video file or something here idk
+        file.save(file_path)
         text = transcribe_video(file)
+        os.remove(file_path)
         return text
 
 if __name__ == '__main__':
