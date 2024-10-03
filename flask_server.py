@@ -4,9 +4,15 @@ import PyPDF2
 
 def create_app():
     app = Flask(__name__, template_folder="front_end")
+    configure_app(app)         
+    register_routes(app)       
+    return app
+
+def configure_app(app):
     app.config['SECRET_KEY'] = 'alvin'
+
+def register_routes(app):
     @app.route('/')
-##- HTML integration here
     def hello_world():
         return render_template('web.html')
     
@@ -19,17 +25,13 @@ def create_app():
         return render_template('geometry.html')
     
     @app.route('/compsci')
-    def copmsci():
+    def compsci():
         return render_template('compsci.html')
     
     @app.route('/astro')
     def astro():
         return render_template('astro.html')
-     
-    return app
-
 
 if __name__ == '__main__':
     app = create_app()
     app.run(debug=True)
-
