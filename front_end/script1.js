@@ -1,3 +1,5 @@
+console.log("hello")
+
 const sendChatbtn = document.querySelector(".chat-input button");
 const chatInput = document.querySelector(".chat-input textarea");
 const chatbox = document.querySelector(".chatbox");

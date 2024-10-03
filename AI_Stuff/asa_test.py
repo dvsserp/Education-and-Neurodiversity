@@ -1,7 +1,7 @@
-from flask import Flask, request, render_template, jsonify
-from AI import create_app
+
+from flask import Flask, request, jsonify
 import requests
-import os 
+import os
 
 #app = Flask(__name__)
 app = create_app
