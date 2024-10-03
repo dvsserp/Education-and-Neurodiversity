@@ -1,8 +1,8 @@
+
 from flask import Flask, request, jsonify
 import requests
-import os 
-from AI import create_app
-app2 = create_app()
+import os
+
 app = Flask(__name__)
 
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
