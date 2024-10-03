@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import io
-import PyPDF2
+import pypdf
 
 def create_app():
     app = Flask(__name__, template_folder="front_end")
@@ -20,15 +20,15 @@ def register_routes(app):
     def chatbot():
         return render_template('chat.html')
     
-    @app.route('/geometry')
+    @app.route('/geometry') #Failing
     def geolink():
         return render_template('geometry.html')
     
-    @app.route('/compsci')
+    @app.route('/compsci') #Failing
     def compsci():
         return render_template('compsci.html')
     
-    @app.route('/astro')
+    @app.route('/astro') #Failing
     def astro():
         return render_template('astro.html')
 

@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-import PyPDF2
+import pypdf
 ### Review on Day of Hackathon/Asa Review Test
 app = Flask(__name__)
 
 def extract_text_from_pdf(file):
-    pdf_reader = PyPDF2.PdfFileReader(file)
+    pdf_reader = pypdf.PdfFileReader(file)
     text = ''
     for page_num in range(pdf_reader.numPages):
         page = pdf_reader.getPage(page_num)
