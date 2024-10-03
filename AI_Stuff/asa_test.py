@@ -3,8 +3,7 @@ from flask import Flask, request, jsonify
 import requests
 import os
 
-#app = Flask(__name__)
-app = create_app
+app = Flask(__name__)
 
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 
