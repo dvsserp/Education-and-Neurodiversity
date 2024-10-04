@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Section - Astrology Course</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .sidebar {
+            width: 300px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar li:hover {
+            background-color: #f2f2f2;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .sidebar a.active {
+            background-color: #337ab7;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question-box {
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #e9ecef;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .answer-option {
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .answer-option.selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+        .explanation {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
+        }
+        .incorrect-box {
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .correct-box {
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #d4edda;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-center" href="./web.html">Glizzy.Edu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="https://www.dictionary.com/">Dictionary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./chat.html">Chat with a bot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./cs-practice-questions-page.html">Practice Questions</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./quiz-page.html">Quiz Section #1</a></li>
+                </ul>
+                <form class="d-flex mx-2" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info" type="submit">Search</button>
+                </form>
+                <button type="button" class="d-flex mx-2 btn btn-outline-info">Login and Register</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <ul>
+                    <li><a href="astrology-video.html">Astrology Video #1</a></li>
+                    <li><a href="cs-practice-questions-page.html">Practice Questions</a></li>
+                    <li><a href="quiz-page.html" class="active">Quiz Section #1</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 main-content">
+                <h1>Quiz Section</h1>
+                <p>Test your knowledge with these Astronomy questions!</p>
+
+                <!-- Quiz Container -->
+                <div class="quiz-container">
+                    <h2 class="text-center mb-4">Astrology Quiz</h2>
+                    <form id="quizForm">
+                        <!-- Questions -->
+                        <div class="question-box">
+                            Question 1: What is the main focus of astronomy?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q1', 'A')">A) Study of celestial objects and the universe</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q1', 'B')">B) Study of human behavior</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q1', 'C')">C) Study of weather patterns</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q1', 'D')">D) Study of plant life</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 2: What distinguishes science from astrology?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q2', 'A')">A) Science is based on empirical evidence</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q2', 'B')">B) Astrology is more popular</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q2', 'C')">C) Astrology uses telescopes</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q2', 'D')">D) Science is less interesting</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 3: How has technology impacted astronomy?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q3', 'A')">A) Made it less relevant</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q3', 'B')">B) Limited our understanding</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q3', 'C')">C) Revolutionized our study of the universe</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q3', 'D')">D) Decreased job opportunities</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 4: What is the role of astronomers?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q4', 'A')">A) Only telescope operators</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q4', 'B')">B) Educators and programmers</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q4', 'C')">C) Engineers and theorists</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q4', 'D')">D) All of the above</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 5: What does the history of astronomy reveal?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q5', 'A')">A) It has always been accurate</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q5', 'B')">B) It has changed significantly over time</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q5', 'C')">C) It is only relevant today</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q5', 'D')">D) It has no impact on modern science</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 6: What is the interconnectedness of sciences?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q6', 'A')">A) All sciences are completely separate</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q6', 'B')">B) Astronomy overlaps with various fields</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q6', 'C')">C) Only physics relates to astronomy</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q6', 'D')">D) None of the above</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 7: How did ancient civilizations use astronomy?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q7', 'A')">A) For navigation</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q7', 'B')">B) For agricultural planning</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q7', 'C')">C) For timekeeping</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q7', 'D')">D) All of the above</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 8: What is the significance of questioning in science?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q8', 'A')">A) It stifles progress</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q8', 'B')">B) It is crucial for advancement</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q8', 'C')">C) It leads to confusion</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q8', 'D')">D) It is irrelevant to discoveries</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 9: What defines modern astronomy?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q9', 'A')">A) Use of ancient methods</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q9', 'B')">B) Reliance on speculation</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q9', 'C')">C) Technological advancements</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q9', 'D')">D) Limited exploration</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 10: What characterizes the universe?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q10', 'A')">A) It is fully understood</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q10', 'B')">B) It is vast and complex</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q10', 'C')">C) It is static</button>
+                                <button type="button" class="btn btn-outline-primary answer-option" onclick="selectAnswer('q10', 'D')">D) None of the above</button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="calculateScore()">Submit Answers</button>
+                    </form>
+
+                    <div id="result" class="hidden text-center mt-4">
+                        <h3>Your Score: <span id="score"></span>/10</h3>
+                        <h4>Correct Answers and Explanations:</h4>
+                        <ul id="correctAnswers"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const selectedAnswers = {};
+
+        function selectAnswer(question, answer) {
+            selectedAnswers[question] = answer;
+            const buttons = document.querySelectorAll(`.question-box:nth-child(${parseInt(question.replace('q', ''))}) .answer-option`);
+            buttons.forEach(button => button.classList.remove('selected'));
+            const selectedButton = Array.from(buttons).find(button => button.innerText.startsWith(answer));
+            selectedButton.classList.add('selected');
+        }
+
+        function calculateScore() {
+            const answers = {
+                q1: { answer: 'A', explanation: 'Astronomy focuses on celestial objects and the universe.' },
+                q2: { answer: 'A', explanation: 'Science relies on empirical evidence, while astrology does not.' },
+                q3: { answer: 'C', explanation: 'Technology has revolutionized our study of the universe.' },
+                q4: { answer: 'D', explanation: 'Astronomers have diverse roles, including education and engineering.' },
+                q5: { answer: 'B', explanation: 'The history of astronomy shows significant changes over time.' },
+                q6: { answer: 'B', explanation: 'Astronomy overlaps with various fields, making it interconnected.' },
+                q7: { answer: 'D', explanation: 'Ancient civilizations used astronomy for navigation, agriculture, and timekeeping.' },
+                q8: { answer: 'B', explanation: 'Questioning is crucial for scientific advancement and discovery.' },
+                q9: { answer: 'C', explanation: 'Modern astronomy is characterized by technological advancements.' },
+                q10: { answer: 'B', explanation: 'The universe is vast and complex, with much still to be understood.' }
+            };
+
+            let score = 0;
+            const correctAnswersList = document.getElementById('correctAnswers');
+            correctAnswersList.innerHTML = ''; // Clear previous results
+
+            for (let question in answers) {
+                const userAnswer = selectedAnswers[question];
+                const correctAnswer = answers[question].answer;
+
+                // Create list item for correct answer
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `Question ${question.replace('q', '')}: Correct Answer is <strong>${correctAnswer}</strong>.`;
+                correctAnswersList.appendChild(listItem);
+
+                if (userAnswer) {
+                    if (userAnswer === correctAnswer) {
+                        // Add explanation for correct answers
+                        const explanation = document.createElement('div');
+                        explanation.classList.add('correct-box');
+                        explanation.innerHTML = `<span>${answers[question].explanation}</span>`;
+                        listItem.appendChild(explanation);
+                        score++;
+                    } else {
+                        // Highlight incorrect answers with explanation
+                        const explanation = document.createElement('div');
+                        explanation.classList.add('incorrect-box');
+                        explanation.innerHTML = `Your Answer: <strong>${userAnswer}</strong>. <span>${answers[question].explanation}</span>`;
+                        listItem.appendChild(explanation);
+                    }
+                }
+            }
+
+            document.getElementById('score').innerText = score;
+            document.getElementById('result').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

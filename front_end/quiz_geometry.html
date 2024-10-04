@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Section - Geometry Course</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .sidebar {
+            width: 300px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar li:hover {
+            background-color: #f2f2f2;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .sidebar a.active {
+            background-color: #337ab7;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question-box {
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #e9ecef;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .button-option {
+            margin: 10px;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem; /* Increased font size */
+        }
+        .hidden {
+            display: none;
+        }
+        .explanation {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
+        }
+        .incorrect-box {
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .correct-box {
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #d4edda;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-center" href="./web.html">Glizzy.Edu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="https://www.dictionary.com/">Dictionary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./chat.html">Chat with a bot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./geometry-practice-questions-page.html">Practice Questions</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./quiz-page.html">Quiz Section #1</a></li>
+                </ul>
+                <form class="d-flex mx-2" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-info" type="submit">Search</button>
+                </form>
+                <button type="button" class="d-flex mx-2 btn btn-outline-info">Login and Register</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <ul>
+                    <li><a href="geometry-video.html">Geometry Video #1</a></li>
+                    <li><a href="geometry-practice-questions-page.html">Practice Questions</a></li>
+                    <li><a href="quiz-page.html" class="active">Quiz Section #1</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 main-content">
+                <h1>Quiz Section</h1>
+                <p>Test your knowledge with these Geometry questions!</p>
+
+                <!-- Quiz Container -->
+                <div class="quiz-container">
+                    <h2 class="text-center mb-4">Geometry Quiz</h2>
+                    <form id="quizForm">
+                        <!-- Questions -->
+                        <div class="question-box">
+                            Question 1: What are points and lines in geometry?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q1', 'A')">A) Shapes with area</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q1', 'B')">B) Containers for angles</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q1', 'C')">C) Basic building blocks of geometry</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q1', 'D')">D) Types of transformations</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 2: What is the angle sum of a triangle?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q2', 'A')">A) 90°</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q2', 'B')">B) 180°</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q2', 'C')">C) 360°</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q2', 'D')">D) 270°</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 3: Which of the following is NOT a type of triangle?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q3', 'A')">A) Acute</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q3', 'B')">B) Obtuse</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q3', 'C')">C) Scalene</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q3', 'D')">D) Circular</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 4: What is the purpose of a transversal in geometry?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q4', 'A')">A) To create angles</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q4', 'B')">B) To measure lengths</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q4', 'C')">C) To connect points</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q4', 'D')">D) To classify polygons</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 5: What does SSS stand for in triangle congruence?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q5', 'A')">A) Side-Side-Side</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q5', 'B')">B) Side-Shape-Side</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q5', 'C')">C) Shape-Side-Shape</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q5', 'D')">D) Side-Segment-Side</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 6: Which property relates to the centroid of a triangle?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q6', 'A')">A) It is the longest side</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q6', 'B')">B) It divides the triangle into equal areas</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q6', 'C')">C) It is a right angle</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q6', 'D')">D) It is the midpoint of the hypotenuse</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 7: What type of lines never intersect?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q7', 'A')">A) Parallel lines</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q7', 'B')">B) Intersecting lines</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q7', 'C')">C) Perpendicular lines</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q7', 'D')">D) Secant lines</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 8: What does the triangle inequality theorem state?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q8', 'A')">A) The sum of any two sides must be greater than the third</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q8', 'B')">B) All angles must be equal</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q8', 'C')">C) The largest side is always opposite the largest angle</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q8', 'D')">D) Triangles cannot have sides of different lengths</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 9: Which angle is formed when two parallel lines are cut by a transversal?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q9', 'A')">A) Corresponding angle</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q9', 'B')">B) Reflex angle</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q9', 'C')">C) Right angle</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q9', 'D')">D) Obtuse angle</button>
+                            </div>
+                        </div>
+
+                        <div class="question-box">
+                            Question 10: How can triangles be classified?
+                            <div>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q10', 'A')">A) By color</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q10', 'B')">B) By side lengths and angles</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q10', 'C')">C) By area</button>
+                                <button type="button" class="btn btn-outline-primary button-option" onclick="selectAnswer('q10', 'D')">D) By perimeter</button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="calculateScore()">Submit Answers</button>
+                    </form>
+
+                    <div id="result" class="hidden text-center mt-4">
+                        <h3>Your Score: <span id="score"></span>/10</h3>
+                        <h4>Correct Answers and Explanations:</h4>
+                        <ul id="correctAnswers"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const selectedAnswers = {};
+
+        function selectAnswer(question, answer) {
+            selectedAnswers[question] = answer;
+            const buttons = document.querySelectorAll(`.question-box:nth-child(${parseInt(question.replace('q', ''))}) .button-option`);
+            buttons.forEach(button => button.classList.remove('btn-success', 'btn-danger'));
+            const selectedButton = Array.from(buttons).find(button => button.innerText.startsWith(answer));
+            selectedButton.classList.add('btn-success');
+        }
+
+        function calculateScore() {
+            const answers = {
+                q1: { answer: 'C', explanation: 'Points and lines are the basic building blocks of geometry.' },
+                q2: { answer: 'B', explanation: 'The angle sum of a triangle is always 180°.' },
+                q3: { answer: 'D', explanation: 'Circular is not a type of triangle.' },
+                q4: { answer: 'A', explanation: 'Transversals create angles when they intersect lines.' },
+                q5: { answer: 'A', explanation: 'SSS stands for Side-Side-Side congruence criterion.' },
+                q6: { answer: 'B', explanation: 'The centroid divides the triangle into equal areas.' },
+                q7: { answer: 'A', explanation: 'Parallel lines never intersect.' },
+                q8: { answer: 'A', explanation: 'The triangle inequality theorem states that the sum of any two sides must be greater than the third.' },
+                q9: { answer: 'A', explanation: 'Corresponding angles are formed when parallel lines are cut by a transversal.' },
+                q10: { answer: 'B', explanation: 'Triangles can be classified by side lengths and angles.' }
+            };
+
+            let score = 0;
+            const correctAnswersList = document.getElementById('correctAnswers');
+            correctAnswersList.innerHTML = ''; // Clear previous results
+
+            for (let question in answers) {
+                const userAnswer = selectedAnswers[question];
+                const correctAnswer = answers[question].answer;
+
+                // Create list item for correct answer
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `Question ${question.replace('q', '')}: Correct Answer is <strong>${correctAnswer}</strong>.`;
+                correctAnswersList.appendChild(listItem);
+
+                if (userAnswer) {
+                    if (userAnswer === correctAnswer) {
+                        // Add explanation for correct answers
+                        const explanation = document.createElement('div');
+                        explanation.classList.add('correct-box');
+                        explanation.innerHTML = `<span>${answers[question].explanation}</span>`;
+                        listItem.appendChild(explanation);
+                        score++;
+                    } else {
+                        // Highlight incorrect answers with explanation
+                        const explanation = document.createElement('div');
+                        explanation.classList.add('incorrect-box');
+                        explanation.innerHTML = `Your Answer: <strong>${userAnswer}</strong>. <span>${answers[question].explanation}</span>`;
+                        listItem.appendChild(explanation);
+                    }
+                }
+            }
+
+            document.getElementById('score').innerText = score;
+            document.getElementById('result').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
