@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import io
 import pypdf
+from AI_Stuff import AI_MAIN
 
 def create_app():
     app = Flask(__name__, template_folder="front_end")
@@ -31,6 +32,11 @@ def register_routes(app):
     @app.route('/astro')
     def astro():
         return render_template('astro.html')
+    
+    @app.route('/test_my_ai')
+    def test_my_ai():
+        AI_MAIN.chat_with_together_api("beans")
+        print("Yay!")
 
 if __name__ == '__main__':
     app = create_app()
