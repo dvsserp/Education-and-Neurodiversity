@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import io
 import pypdf
-from AI_Stuff import AI_MAIN
+from AI_Stuff.AI_MAIN import chat_with_together_api
 
 def create_app():
     app = Flask(__name__, template_folder="front_end")
@@ -35,8 +35,8 @@ def register_routes(app):
     
     @app.route('/test_my_ai')
     def test_my_ai():
-       result = AI_MAIN.chat_with_together_api("beans")
-       print(result)
+       result = chat_with_together_api("Why is the sky blue?")
+       return result
 
 
 if __name__ == '__main__':
