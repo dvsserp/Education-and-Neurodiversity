@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import io
 import PyPDF2
 from AI_Stuff.AI_MAIN import chat_with_together_api
@@ -33,14 +33,15 @@ def register_routes(app):
     def astro():
         return render_template('astro.html')
     
-    @app.route('/test_my_ai')
+    @app.route('/test_my_ai', methods=['POST'])
     def test_my_ai():
-       query = "Write a one sentence quote"
-       history = []
-       history.append({"role": "user", "content": query})
-       result, x = chat_with_together_api(history)
-       history.append({"role":"assistant","content":result})
-       return result, history
+        data = request.get_json()
+        query = data.get('query', "Write a one sentence quote")
+        history = []
+        history.append({"role": "user", "content": query})
+        result, x = chat_with_together_api(history)
+        history.append({"role":"assistant","content":result})
+        return jsonify({"result": result, "history": history})
 
 
 if __name__ == '__main__':
