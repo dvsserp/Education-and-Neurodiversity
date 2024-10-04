@@ -144,6 +144,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
+        // Global history that persists across requests
+        let history = [];
         const sendChatBtn = document.getElementById("sendChatBtn");
         const chatInput = document.getElementById("chatInput");
         const chatbox = document.getElementById("chatbox");
@@ -162,7 +164,7 @@
             const userMessage = chatInput.value.trim(); 
             if (!userMessage) return;
 
-            // Create JSON object for the message
+            // Create a message object to send to Flask
             const messageObject = {
 <<<<<<< HEAD
                 sender: "user",
@@ -175,6 +177,7 @@
 >>>>>>> ae784383fff094b77b1edb3dc99b6bdf1ad82be1
             };
 
+            // Add user's message to the UI
             chatbox.appendChild(createChatLi(userMessage, "outgoing"));
             chatInput.value = ""; 
 
@@ -186,20 +189,19 @@
                 },
                 body: JSON.stringify(messageObject)
             })
-            .then(response => response.json()) // Expect JSON from Flask
+            .then(response => response.json())  // Expect JSON from Flask
             .then(data => {
                 const botMessage = data.message;
                 const updatedList = data.updated_list;
 
+                // Update the global history with the updated list from Flask
+                history = updatedList;
+
                 // Display the bot's message
                 chatbox.appendChild(createChatLi(botMessage, "incoming"));
 
-                // Log or handle the updated list
-                console.log("Updated list:", updatedList);
-
-                // Optionally, you can update the UI based on the updated list
-                // For example, display the updated list in the chat
-                chatbox.appendChild(createChatLi(`Updated list: ${updatedList.join(', ')}`, "incoming"));
+                // Optionally log or show the updated history for debugging
+                console.log("Updated history:", history);
             })
             .catch(error => {
                 console.error("Error:", error);
@@ -215,14 +217,7 @@
             }
         });
 
-        sendChatBtn.addEventListener("click", handleChat);
 
-        chatInput.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
-                event.preventDefault(); 
-                handleChat();
-            }
-        });
     </script>
 </body>
 </html>
