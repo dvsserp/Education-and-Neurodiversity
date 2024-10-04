@@ -35,8 +35,12 @@ def register_routes(app):
     
     @app.route('/test_my_ai')
     def test_my_ai():
-       result = chat_with_together_api("Why is the sky blue?")
-       return result
+       query = "Write a one sentence quote"
+       history = []
+       history.append({"role": "user", "content": query})
+       result, x = chat_with_together_api(history)
+       history.append({"role":"assistant","content":result.content})
+       return result, history
 
 
 if __name__ == '__main__':

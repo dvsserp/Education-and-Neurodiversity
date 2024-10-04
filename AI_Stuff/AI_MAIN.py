@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Example route to call the Together API
 @app.route('/api/chat', methods=['POST'])
-def chat_with_together_api(query):
+def chat_with_together_api(history):
     # Extract API key from environment variables
     api_key = '314c378d4b2f51491df2c6c6a27332b58584e5d7ca928e48be4d97541562109b'
     #api_key = os.getenv('TOGETHER_API_KEY')
@@ -19,10 +19,8 @@ def chat_with_together_api(query):
 
     # The request payload
     payload = {
-        "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
-        "messages": [
-            {"role": "user", "content": query}
-        ]
+        "model":"meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+        "messages":history[-1]
     }
 
     # The headers, including the API key for authorization
@@ -41,7 +39,6 @@ def chat_with_together_api(query):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-    return "This is the responce"
 if __name__ == '__main__':
     app.run(debug=True)
 
