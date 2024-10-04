@@ -35,9 +35,18 @@ def register_routes(app):
     
     @app.route('/test_my_ai', methods=['POST'])
     def test_my_ai():
-        prompt, history = request.form
-        result, history = chat_with_together_api(prompt, history)
-        return result, history
+        data = request.get_json()
+        prompt = data.get("prompt", "")
+        history = data.get("blank_list", [])  # Expecting history in this key (which is an empty list initially)
+
+        # Call the chat_with_together_api function
+        result, updated_history = chat_with_together_api(prompt, history)
+
+        # Return the result and the updated history
+        return jsonify({
+            "message": result,
+            "updated_list": updated_history
+        }), 200
 
 
 

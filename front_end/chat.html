@@ -164,29 +164,49 @@
 
             // Create JSON object for the message
             const messageObject = {
-                sender: "user",
-                message: userMessage,
-                timestamp: new Date().toISOString()
+                prompt: userMessage,
+                blank_list: [] // Initially sending a blank list
             };
-
-            // Log the message as JSON (optional)
-            console.log(JSON.stringify(messageObject));
 
             chatbox.appendChild(createChatLi(userMessage, "outgoing"));
             chatInput.value = ""; 
 
-            setTimeout(() => {
-                const botMessage = "thinking...";
-                const botMessageObject = {
-                    sender: "bot",
-                    message: botMessage,
-                    timestamp: new Date().toISOString()
-                };
-                // Log the bot's message as JSON (optional)
-                console.log(JSON.stringify(botMessageObject));
+            // Send the request to Flask server
+            fetch("/chatbot", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(messageObject)
+            })
+            .then(response => response.json()) // Expect JSON from Flask
+            .then(data => {
+                const botMessage = data.message;
+                const updatedList = data.updated_list;
+
+                // Display the bot's message
                 chatbox.appendChild(createChatLi(botMessage, "incoming"));
-            }, 600);
+
+                // Log or handle the updated list
+                console.log("Updated list:", updatedList);
+
+                // Optionally, you can update the UI based on the updated list
+                // For example, display the updated list in the chat
+                chatbox.appendChild(createChatLi(`Updated list: ${updatedList.join(', ')}`, "incoming"));
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
         };
+
+        sendChatBtn.addEventListener("click", handleChat);
+
+        chatInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault(); 
+                handleChat();
+            }
+        });
 
         sendChatBtn.addEventListener("click", handleChat);
 
