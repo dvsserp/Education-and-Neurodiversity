@@ -32,9 +32,12 @@ def chat_with_together_api(history):
     try:
         # Make the POST request to the Together API
         response = requests.post(url, headers=headers, json=payload)
+        response_data = response.json()
+        print(response_data)
+        content = response_data['choices'][0]['message']['content']
 
         # Return the response from the Together API as JSON
-        return jsonify(response.json()), response.status_code
+        return content, response_data.status_code
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

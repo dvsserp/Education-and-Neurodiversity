@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import io
-import pypdf
+import PyPDF2
 from AI_Stuff.AI_MAIN import chat_with_together_api
 
 def create_app():
@@ -39,7 +39,7 @@ def register_routes(app):
        history = []
        history.append({"role": "user", "content": query})
        result, x = chat_with_together_api(history)
-       history.append({"role":"assistant","content":result.content})
+       history.append({"role":"assistant","content":result})
        return result, history
 
 
