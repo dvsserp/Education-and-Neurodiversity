@@ -35,10 +35,9 @@ def register_routes(app):
     
     @app.route('/test_my_ai')
     def test_my_ai():
-        history = []
-        prompt = "Write a 1 sentence quote"
-        result = chat_with_together_api(prompt, history)
-        return result
+        prompt, history = request.form
+        result, history = chat_with_together_api(prompt, history)
+        return result, history
 
 
 

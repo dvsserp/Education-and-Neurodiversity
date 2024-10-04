@@ -10,13 +10,13 @@ limiter = Limiter(get_remote_address, app=app, default_limits=["5 per minute"])
 
 # Example route to call the Together API
 @app.route('/api/chat', methods=['POST'])
-@limiter.limit("5 per minute")  # Apply rate limiting here
+@limiter.limit("5 per minute")  # Apply ate limiting here
 def chat_with_together_api(prompt, history):
     # Extract API key from environment variables
     api_key = '314c378d4b2f51491df2c6c6a27332b58584e5d7ca928e48be4d97541562109b'
 
     # Extract history from the request
-    history = [{"role":"user", "content":prompt}]
+    history.append({"role":"user", "content":prompt})
 
     # The API endpoint
     url = "https://api.together.xyz/v1/chat/completions"
@@ -39,9 +39,9 @@ def chat_with_together_api(prompt, history):
         response_data = response.json()
         print(response_data)
         content = response_data['choices'][0]['message']['content']
-
+        history.append({"role":"assistant", "content":content})
         # Return the response from the Together API as JSON
-        return content
+        return content, history
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
