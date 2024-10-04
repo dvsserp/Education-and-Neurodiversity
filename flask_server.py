@@ -39,7 +39,7 @@ def register_routes(app):
        history = []
        history.append({"role": "user", "content": query})
        result, x = chat_with_together_api(history)
-       history.append({"role":"assistant","content":result.content})
+       history.append({"role":"assistant","content":result})
        return result, history
 
 
