@@ -35,8 +35,9 @@ def register_routes(app):
     
     @app.route('/test_my_ai')
     def test_my_ai():
-        AI_MAIN.chat_with_together_api("beans")
-        print("Yay!")
+       result = AI_MAIN.chat_with_together_api("beans")
+       print(result)
+
 
 if __name__ == '__main__':
     app = create_app()
