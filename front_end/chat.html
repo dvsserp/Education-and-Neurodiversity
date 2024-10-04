@@ -24,6 +24,7 @@
             padding: 10px;
             height: 300px;
             list-style-type: none;
+            
         }
         .chat {
             margin: 5px 0;
@@ -48,7 +49,8 @@
             flex: 1;
             border: 1px solid #ddd;
             border-radius: 5px;
-            padding: 10px;
+            padding-left: 10px;
+            padding-top: 6px;
             resize: none;
         }
         .chat-input button {
@@ -137,10 +139,10 @@
             <header style="background: lightskyblue; border-radius: 10px; text-align: center;">
                 <h2 style="color:aliceblue;">Chatbot</h2>
             </header>
-            <ul class="chatbox" id="chatbox" style="height: 300px; overflow-y: auto; ">
+            <ul class="chatbox" id="chatbox" style="height: 300px; overflow-y: auto;">
                 <li class="chat incoming">
                     <span class="material-symbols-outlined">Glizzy</span>
-                    <p style="color:black; font-size:medium; ">Hi there, <br> How can I help you today?</p>
+                    <p style="color:black; font-size:medium; margin-left: 20px; margin-top: 20px;">Hi there, <br> How can I help you today?</p>
                 </li>
             </ul>
             <div class="chat-input d-flex mx-3">
@@ -162,7 +164,7 @@
             chatLi.classList.add("chat", className);
             let chatContent = className === "outgoing" 
                 ? `<p>${message}</p>` 
-                : `<span class="material-symbols-outlined">Glizzy</span><p>${message}</p>`;
+                : `<span class="material-symbols-outlined">Glizzy</span><p style="color:black; font-size:medium; margin-left: 20px; margin-top: 18px;">${message}</p>`;
             chatLi.innerHTML = chatContent;
             return chatLi; 
         };
