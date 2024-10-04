@@ -20,15 +20,15 @@ def register_routes(app):
     def chatbot():
         return render_template('chat.html')
     
-    @app.route('/geometry') #Failing
+    @app.route('/geometry')
     def geolink():
         return render_template('geometry.html')
     
-    @app.route('/compsci') #Failing
+    @app.route('/compsci')
     def compsci():
         return render_template('compsci.html')
     
-    @app.route('/astro') #Failing
+    @app.route('/astro')
     def astro():
         return render_template('astro.html')
 
