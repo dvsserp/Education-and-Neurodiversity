@@ -166,10 +166,8 @@
 
             // Create a message object to send to Flask
             const messageObject = {
-                sender: "user",
-                message: userMessage,
-                timestamp: new Date().toISOString()
-                
+                prompt: userMessage,
+                blank_list: history  // Send the current conversation history to Flask
             };
 
             // Add user's message to the UI
@@ -211,6 +209,7 @@
                 handleChat();
             }
         });
+
 
 
     </script>
