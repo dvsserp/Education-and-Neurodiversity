@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <title>compsci</title>
+=======
+    <title>Computer Science: Python Course</title>
+>>>>>>> 45a06e6 (.)
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .sidebar {
+            width: 300px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar li:hover {
+            background-color: #f2f2f2;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .sidebar a.active {
+            background-color: #337ab7;
+            color: #fff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .sidebar li a {
+            display: block;
+            padding: 20px 40px;
+            border-radius: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            transition: background-color 0.2s;
+            font-size: 18px;
+        }
+        .sidebar li a:hover {
+            background-color: #f2f2f2;
+        }
+        video {
+            width: 100%; /* Make the video responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .transcript {
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand text-center" href="./web.html">Glizzy.Edu</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="https://www.dictionary.com/">Dictionary</a></li>
+              <li class="nav-item"><a class="nav-link" href="./chat.html">Chat with a bot</a></li>
+            </ul>
+            <form class="d-flex mx-2" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-info" type="submit">Search</button>
+            </form>
+            <button type="button" class="d-flex mx-2 btn btn-outline-info">Login and Register</button>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <ul>
+                    <li><a href="#" class="active">Video #1</a></li>
+                    <li><a href="practice-questions-page.html">Practice Questions #1</a></li>
+                    <li><a href="quiz-page.html">Quiz Section #1</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 main-content">
+                <h1>Computer Science: Python</h1>
+                <p>Welcome to the Computer Science course focused on Python programming! In this course, you will learn the fundamentals of Python, including data types, control structures, functions, and more. Led by the famous YouTuber "Bro Code", this course will mostly focus on the basics of Python so that you can get a job.</p>
+
+                <!-- Video Player -->
+                <video controls>
+                    <source src="comp sci video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Transcript Section -->
+                <div class="transcript">
+                    <h2>Transcript</h2>
+                    <p><strong>Summary:</strong> Learn about Python variables, their types (strings, integers, floats, booleans), and how to use them effectively in programming.</p>
+                    <p><strong>Highlights:</strong></p>
+                    <ul>
+                        <li>📦 Variables are containers for values.</li>
+                        <li>🔤 Strings represent text and can be defined with quotes.</li>
+                        <li>🧮 Integers are whole numbers, used in arithmetic operations.</li>
+                        <li>💲 Floats include decimal points, useful for prices and measurements.</li>
+                        <li>✅ Booleans represent true or false values.</li>
+                        <li>📝 F-strings simplify variable display in print statements.</li>
+                        <li>💡 Assignment requires unique names and the equals sign.</li>
+                    </ul>
+                    <p><strong>Key Insights:</strong></p>
+                    <ul>
+                        <li>📦 <strong>Understanding Variables:</strong> Variables are foundational in programming, allowing for the storage and manipulation of data. They act as placeholders that can be reused throughout your code.</li>
+                        <li>🔤 <strong>String Usage:</strong> Strings are versatile and can include letters, numbers, and symbols. Choosing between single and double quotes is a matter of preference, but consistency is key.</li>
+                        <li>🧮 <strong>Integers in Arithmetic:</strong> Integers are crucial for calculations, making them indispensable for tasks involving counting, age, or any whole number operations.</li>
+                        <li>💲 <strong>Floats for Precision:</strong> Floats are essential when precision is needed, such as in financial calculations or measurements that require decimals.</li>
+                        <li>✅ <strong>Boolean Logic:</strong> Booleans introduce binary logic to programming, enabling decision-making processes through conditions. They are essential for control flow statements like if-else.</li>
+                        <li>📝 <strong>F-Strings for Clarity:</strong> F-strings enhance readability and simplify the process of including variables in strings, making code cleaner and easier to understand.</li>
+                        <li>💡 <strong>Naming Conventions:</strong> Unique and descriptive variable names help in maintaining clarity in code, making it easier for others (and yourself) to read and maintain later.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
