@@ -6,9 +6,11 @@ app = Flask(__name__)
 
 # Example route to call the Together API
 @app.route('/api/chat', methods=['POST'])
-def chat_with_together_api():
+def chat_with_together_api(query):
+    '''
     # Extract API key from environment variables
-    api_key = os.getenv('TOGETHER_API_KEY')
+    api_key = '314c378d4b2f51491df2c6c6a27332b58584e5d7ca928e48be4d97541562109b'
+    #api_key = os.getenv('TOGETHER_API_KEY')
 
     if not api_key:
         return jsonify({"error": "API key is missing"}), 400
@@ -20,7 +22,7 @@ def chat_with_together_api():
     payload = {
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
         "messages": [
-            {"role": "user", "content": "What are some fun things to do in New York?"}
+            {"role": "user", "content": query}
         ]
     }
 
@@ -39,7 +41,8 @@ def chat_with_together_api():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
+    '''
+    return "This is the responce"
 if __name__ == '__main__':
     app.run(debug=True)
 
