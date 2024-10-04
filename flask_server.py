@@ -33,9 +33,11 @@ def register_routes(app):
     def astro():
         return render_template('astro.html')
     
-    @app.route('/test_my_ai', methods=['POST'])
+    @app.route('/test_my_ai')
     def test_my_ai():
-        result = chat_with_together_api("Why is the sky blue?")
+        history = []
+        prompt = "Write a 1 sentence quote"
+        result = chat_with_together_api(prompt, history)
         return result
 
 
