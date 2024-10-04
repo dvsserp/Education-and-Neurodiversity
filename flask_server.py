@@ -38,10 +38,8 @@ def register_routes(app):
         data = request.get_json()
         prompt = data.get("prompt", "")
         history = data.get("blank_list", [])  # Expecting history in this key (which is an empty list initially)
-        print(history)
         # Call the chat_with_together_api function
         result, updated_history = chat_with_together_api(prompt, history)
-        print(f"Result: {result}, Updated history: {updated_history}")
         # Return the result and the updated history
         return jsonify({
             "message": result,
