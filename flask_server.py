@@ -35,13 +35,9 @@ def register_routes(app):
     
     @app.route('/test_my_ai', methods=['POST'])
     def test_my_ai():
-        data = request.get_json()
-        query = data.get('query', "Write a one sentence quote")
-        history = []
-        history.append({"role": "user", "content": query})
-        result, x = chat_with_together_api(history)
-        history.append({"role":"assistant","content":result})
-        return jsonify({"result": result, "history": history})
+        result = chat_with_together_api("Why is the sky blue?")
+        return result
+
 
 
 if __name__ == '__main__':
